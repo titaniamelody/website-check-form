@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -163,8 +163,7 @@
     try {
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: new URLSearchParams(payload)
       });
 
       if (!response.ok) throw new Error("Request failed");
@@ -184,3 +183,4 @@
 
 </body>
 </html>
+
