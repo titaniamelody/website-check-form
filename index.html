@@ -163,7 +163,8 @@
     try {
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
-        body: new URLSearchParams(payload)
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify(payload)
       });
 
       if (!response.ok) throw new Error("Request failed");
@@ -183,4 +184,5 @@
 
 </body>
 </html>
+
 
